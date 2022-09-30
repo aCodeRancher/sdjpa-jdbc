@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Created by jt on 8/20/21.
@@ -31,5 +32,11 @@ public class AuthorDaoIntegrationTest {
 
         assertThat(author).isNotNull();
 
+    }
+
+    @Test
+    void testGetByName(){
+        Author author = authorDao.getByName("Eric", "Evans");
+        assertTrue(author!=null);
     }
 }
